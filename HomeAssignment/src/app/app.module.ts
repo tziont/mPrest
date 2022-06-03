@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PhotosTableComponent } from './components/photos-table/photos-table.component';
 import { MatTableModule } from '@angular/material/table'  
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ShellComponent } from './components/shell/shell.component';
+import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhotosTableComponent
+    PhotosTableComponent,
+    ShellComponent,
+    PhotoViewerComponent
   ],
   imports: [
     BrowserModule,
