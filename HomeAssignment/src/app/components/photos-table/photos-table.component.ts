@@ -21,16 +21,36 @@ displayedColumns: string[] = [
   'albumId',
   'id',
   'title',
-  'url',
+  'actions',
  
 ];
+
 @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private photos:EndPointsService) { }
 
   ngOnInit(): void {
-   this.photos.getPhotos().subscribe(res => this.photosList = new MatTableDataSource(res));
+  this.getAllPhotos();
   }
-  
+
+  getAllPhotos(){
+    this.photos.getPhotos().subscribe(res =>{
+      this.photosList = new MatTableDataSource(res);
+      this.photosList.paginator = this.paginator;
+   });
+  }
+  deleteRow(id:number){
+    this.photos.deletePhoto(id).subscribe(
+      {
+        next:(res)=>{
+          alert("product Delete Successfully");
+          this.getAllPhotos();
+        },
+        error:()=>{
+          alert('error')
+        }
+      }
+    );
+  }
   }
 

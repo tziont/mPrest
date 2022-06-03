@@ -11,9 +11,12 @@ export class EndPointsService {
 
   constructor(private http: HttpClient) { }
 
-url =  'https://jsonplaceholder.typicode.com/photos';
+url =  ' http://localhost:3000/photos/';
 
 getPhotos():Observable<Photo[]>{
   return this.http.get<Photo[]>(this.url).pipe(map(reponse => reponse))
+}
+deletePhoto(id:number):Observable<any>{
+  return this.http.delete<Photo>(this.url+ id).pipe(map(reponse => reponse))
 }
 }
