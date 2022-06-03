@@ -9,7 +9,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ShellComponent } from './components/shell/shell.component';
 import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.component';
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,8 @@ import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.com
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

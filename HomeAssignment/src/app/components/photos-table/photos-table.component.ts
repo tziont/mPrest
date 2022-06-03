@@ -19,7 +19,7 @@ import { Photo } from 'src/app/types/photo';
 export class PhotosTableComponent implements OnInit {
   @Output()
   photoEemitter = new EventEmitter<string>();
-  photos$: Observable<Photo[]>;
+  selectedPhoto: string;
   photosList: MatTableDataSource<Photo>;
   rowPropertiesList: MatTableDataSource<Photo>;
   idFilterValue: string;
@@ -38,10 +38,18 @@ export class PhotosTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllPhotos();
+    this.photosList.filterPredicate = function(data, filter: string): boolean {
+      return data.Title.toLowerCase().includes(filter) || data.Id.toString().includes(filter) ;
+  };
+  }
+  
+  applyFilter(filterValue:string){
+    this.photosList.filter = filterValue.trim().toLowerCase();
   }
 
   emitPhoto(photoUrl: string) {
     this.photoEemitter.emit(photoUrl);
+    this.selectedPhoto = photoUrl;
   }
 
   getAllPhotos() {
@@ -51,10 +59,14 @@ export class PhotosTableComponent implements OnInit {
     });
   }
 
-  deleteRow(e:Event,id: number) {
+
+  deleteRow(e: Event, photoRecord:any) {
     e.stopPropagation();
-    this.photos.deletePhoto(id).subscribe({
+    this.photos.deletePhoto(photoRecord.id).subscribe({
       next: (res) => {
+        if(photoRecord.url === this.selectedPhoto){
+          this.emitPhoto('');
+        }
         this.getAllPhotos();
       },
       error: () => {

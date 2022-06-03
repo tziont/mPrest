@@ -1,18 +1,37 @@
-:host{
-    display:block;
-    max-width: 1300px;
-    margin:0 auto;
-    
-    text-align: left;
+:host {
+  display: block;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  text-align: left;
 }
 
-table{
-    width:100%;
+table {
+  width: 100%;
+  .title {
+    width: 65%;
+  }
 }
-.thumbnail{
-    display: inline-block;
-    height:50px;
-    width:50px;
+.thumbnail {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+.table-actions-wrapper {
+  display: flex;
+  button{
+    .mat-icon {
+        font-size: 14px;
+        color: green;
+      }
+      &:nth-child(2){
+        .mat-icon {
+            color: red;
+          }
+      }
+  }
+  
 }
 th.mat-header-cell,
 td.mat-cell {
