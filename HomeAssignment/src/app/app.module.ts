@@ -10,12 +10,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ShellComponent } from './components/shell/shell.component';
 import { PhotoViewerComponent } from './components/photo-viewer/photo-viewer.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddPhotoDialogComponent } from './components/add-photo-dialog/add-photo-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditTitleDialogComponent } from './components/edit-title-dialog/edit-title-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
     PhotosTableComponent,
     ShellComponent,
-    PhotoViewerComponent
+    PhotoViewerComponent,
+    AddPhotoDialogComponent,
+    EditTitleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,9 @@ import {MatIconModule} from '@angular/material/icon';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

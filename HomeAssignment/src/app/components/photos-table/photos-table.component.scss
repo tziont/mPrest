@@ -1,39 +1,85 @@
 :host {
   display: block;
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-
+  position: relative;
+  width: 780px;
+  height: 100%;
   text-align: left;
+  border: 1px solid #078cc2;
 }
-
+.add-btn{
+  background: #078cc2;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  padding: 6px 20px;
+}
 table {
   width: 100%;
   .title {
     width: 65%;
   }
+  &.mat-table {
+    background: #f4f7f9;;
+}
 }
 .thumbnail {
-  display: inline-block;
+  display: flex;
   height: 50px;
   width: 50px;
+  padding: 2px;
 }
 .table-actions-wrapper {
   display: flex;
-  button{
+  gap:4px;
+  button {
+    border:1px solid #333;
+    border-radius: 3px;
+    background-color: #fff;
     .mat-icon {
-        font-size: 14px;
-        color: green;
+      font-size: 24px;
+      color: #078cc2;;
+    }
+    &:nth-child(2) {
+      .mat-icon {
+        color: #c91b1b;
       }
-      &:nth-child(2){
-        .mat-icon {
-            color: red;
-          }
-      }
+    }
+  }
+}
+.table-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:10px;
+input{
+  border:1px solid #078cc2;
+  border-radius: 3px;
+  &:focus{
+    outline: 2px solid #078cc2;
+  }
+}
+}
+.table-header-row{
+  
+  background-color: #078cc2;
+  &.mat-header-row{
+    height:37px;
+  }
+  & .mat-header-cell{
+    color:#fff;
   }
   
 }
 th.mat-header-cell,
 td.mat-cell {
   padding: 0 10px;
+}
+.mat-paginator{
+  display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    .mat-paginator-page-size{
+      display: none;
+    } 
 }

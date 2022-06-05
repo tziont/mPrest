@@ -6,11 +6,12 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { EndPointsService } from 'src/app/services/end-points.service';
-import { Observable } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Photo } from 'src/app/types/photo';
-
+import { AddPhotoDialogComponent } from '../add-photo-dialog/add-photo-dialog.component';
+import { EditTitleDialogComponent } from '../edit-title-dialog/edit-title-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-photos-table',
   templateUrl: './photos-table.component.html',
@@ -34,15 +35,21 @@ export class PhotosTableComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private photos: EndPointsService) {}
+
+  constructor(private photos: EndPointsService,private dialog:MatDialog) {}
 
   ngOnInit(): void {
     this.getAllPhotos();
-    this.photosList.filterPredicate = function(data, filter: string): boolean {
-      return data.Title.toLowerCase().includes(filter) || data.Id.toString().includes(filter) ;
-  };
+    this.createCustomFiltering();
   }
-  
+
+   createCustomFiltering(){
+    if(this.photosList){
+      this.photosList.filterPredicate = function(data, filter: string): boolean {
+        return data.Title.toLowerCase().includes(filter) || data.Id.toString().includes(filter) ;
+      }
+    };
+   }
   applyFilter(filterValue:string){
     this.photosList.filter = filterValue.trim().toLowerCase();
   }
@@ -58,7 +65,23 @@ export class PhotosTableComponent implements OnInit {
       this.photosList.paginator = this.paginator;
     });
   }
+  openAddPhotoDialog() {
+    const dialogRef = this.dialog.open(AddPhotoDialogComponent,{width:'500px'});
 
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllPhotos();
+    });
+  }
+
+  openEditDialog(row:any) {
+    const dialogRef = this.dialog.open(EditTitleDialogComponent,{width:'500px',data:row});
+
+    dialogRef.afterClosed().subscribe(result => {
+
+        this.getAllPhotos();
+
+    });
+  }
 
   deleteRow(e: Event, photoRecord:any) {
     e.stopPropagation();

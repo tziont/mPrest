@@ -1,12 +1,18 @@
 <div class="table-wrapper">
- 
-    <input (keyup)="applyFilter($any($event.target).value)"matInput placeholder="Filter">
+  <div class="table-actions">
+
+      <input (keyup)="applyFilter($any($event.target).value)" matInput placeholder="Filter by ID or title">
+    
+    <button class="add-btn" mat-button (click)="openAddPhotoDialog()">Add photo</button>
+    
+  </div>
+  
  
   <table mat-table [dataSource]="photosList">
     <ng-container matColumnDef="thumbnailUrl">
       <th mat-header-cell *matHeaderCellDef>thumbnailUrl</th>
       <td mat-cell *matCellDef="let element">
-        <img class="thumbnail" src="{{ element.url }}" />
+        <img class="thumbnail" src="{{ element.thumbnailUrl}}" />
       </td>
     </ng-container>
     <ng-container matColumnDef="albumId">
@@ -31,18 +37,18 @@
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let element">
         <div class="table-actions-wrapper">
-        <button > <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon></button>
+        <button (click)="openEditDialog(element)"> <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon></button>
          <button (click)="deleteRow($event,element)"> <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon></button>
         </div>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr class="table-header-row" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
       mat-row
       *matRowDef="let row; columns: displayedColumns"
       (click)="emitPhoto(row.url)"
     ></tr>
   </table>
-  <mat-paginator [pageSize]="5"></mat-paginator>
+  <mat-paginator [pageSize]="5" hidePageSize="true"></mat-paginator>
 </div>

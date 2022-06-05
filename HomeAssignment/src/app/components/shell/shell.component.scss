@@ -1,9 +1,11 @@
 :host {
   display: grid;
-  margin: 0 auto;
-  max-width: 1100px;
+  grid-template-rows:  60px  auto;
 }
 .main-content-wrapper {
   display: flex;
   align-items: center;
+  max-width: 1200px;
+  justify-self: center;
+  gap:5px;
 }

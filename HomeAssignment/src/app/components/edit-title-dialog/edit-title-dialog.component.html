@@ -1,0 +1,11 @@
+<h1>Add photo</h1>
+<form [formGroup]="editTitleForm">
+
+    <label>You can edit the title</label>
+    <input formControlName="title" placeholder="Title">
+  
+    <div mat-dialog-action [align]="'end'">
+        <button>Cancel</button>
+        <button (click)="saveTitle()">Save</button>
+    </div>
+</form>

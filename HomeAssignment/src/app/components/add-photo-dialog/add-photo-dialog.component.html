@@ -1,0 +1,19 @@
+<h1>Add photo</h1>
+<form [formGroup]="photosRecordForm">
+    <label>Please enter ID</label>
+    <input formControlName="id" placeholder="enter id">
+    <label>Please enter title</label>
+    <input formControlName="title" placeholder="Title">
+    <label>Please enter album ID</label>
+    <input formControlName="albumId" placeholder="Album ID">
+    <label>Please enter photo url</label>
+    <input formControlName="url" placeholder="Photo url">
+    <label>Please enter thumbnail url</label>
+    <input formControlName="thumbnailUrl" placeholder="Thumbnail url">
+   
+
+    <div mat-dialog-action [align]="'end'">
+        <button>Cancel</button>
+        <button (click)="addPhotoRecord()">Save</button>
+    </div>
+</form>
