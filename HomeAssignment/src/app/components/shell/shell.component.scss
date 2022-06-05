@@ -2,8 +2,12 @@
   display: grid;
   grid-template-rows:  60px  auto;
 }
+.main-header{
+  padding:10px 20px;
+}
 .main-content-wrapper {
   display: flex;
+  margin-top: 80px;;
   align-items: center;
   max-width: 1200px;
   justify-self: center;

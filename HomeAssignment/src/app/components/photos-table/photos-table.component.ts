@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Photo } from 'src/app/types/photo';
 import { AddPhotoDialogComponent } from '../add-photo-dialog/add-photo-dialog.component';
 import { EditTitleDialogComponent } from '../edit-title-dialog/edit-title-dialog.component';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-photos-table',
   templateUrl: './photos-table.component.html',
@@ -35,22 +35,27 @@ export class PhotosTableComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-
-  constructor(private photos: EndPointsService,private dialog:MatDialog) {}
+  constructor(private photos: EndPointsService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getAllPhotos();
     this.createCustomFiltering();
   }
 
-   createCustomFiltering(){
-    if(this.photosList){
-      this.photosList.filterPredicate = function(data, filter: string): boolean {
-        return data.Title.toLowerCase().includes(filter) || data.Id.toString().includes(filter) ;
-      }
-    };
-   }
-  applyFilter(filterValue:string){
+  createCustomFiltering() {
+    if (this.photosList) {
+      this.photosList.filterPredicate = function (
+        data,
+        filter: string
+      ): boolean {
+        return (
+          data.Title.toLowerCase().includes(filter) ||
+          data.Id.toString().includes(filter)
+        );
+      };
+    }
+  }
+  applyFilter(filterValue: string) {
     this.photosList.filter = filterValue.trim().toLowerCase();
   }
 
@@ -66,34 +71,34 @@ export class PhotosTableComponent implements OnInit {
     });
   }
   openAddPhotoDialog() {
-    const dialogRef = this.dialog.open(AddPhotoDialogComponent,{width:'400px'});
+    const dialogRef = this.dialog.open(AddPhotoDialogComponent, {
+      width: '400px',
+    });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       this.getAllPhotos();
     });
   }
 
-  openEditDialog(row:any) {
-    const dialogRef = this.dialog.open(EditTitleDialogComponent,{width:'400px',data:row});
+  openEditDialog(row: Photo) {
+    const dialogRef = this.dialog.open(EditTitleDialogComponent, {
+      width: '400px',
+      data: row,
+    });
 
-    dialogRef.afterClosed().subscribe(result => {
-
-        this.getAllPhotos();
-
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getAllPhotos();
     });
   }
 
-  deleteRow(e: Event, photoRecord:any) {
+  deleteRow(e: Event, photoRecord: any) {
     e.stopPropagation();
     this.photos.deletePhoto(photoRecord.id).subscribe({
       next: (res) => {
-        if(photoRecord.url === this.selectedPhoto){
+        if (photoRecord.url === this.selectedPhoto) {
           this.emitPhoto('');
         }
         this.getAllPhotos();
-      },
-      error: () => {
-        alert('error');
       },
     });
   }

@@ -6,7 +6,8 @@
   text-align: left;
   border: 1px solid var(--light-blue);
 }
-.add-btn{
+
+.add-btn {
   background: var(--light-blue);
   border: none;
   color: var(--white);
@@ -19,8 +20,8 @@ table {
     width: 65%;
   }
   &.mat-table {
-    background: #f4f7f9;;
-}
+    background: #f4f7f9;
+  }
 }
 .thumbnail {
   display: flex;
@@ -30,9 +31,10 @@ table {
 }
 .table-actions-wrapper {
   display: flex;
-  gap:4px;
+
+  gap: 4px;
   button {
-    border:1px solid #333;
+    border: 1px solid #333;
     border-radius: 3px;
     background-color: var(--white);
     .mat-icon {
@@ -46,40 +48,44 @@ table {
     }
   }
 }
-.table-actions{
+.table-actions {
+  label {
+    color: var(--light-blue);
+  }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:10px;
-input{
-  border:1px solid var(--light-blue);
-  border-radius: 3px;
-  &:focus{
-    outline: 2px solid var(--light-blue);
+  padding: 10px;
+  input {
+    margin-left: 5px;
+    height: 25px;
+    padding: 0 10px;
+    border: 1px solid var(--light-blue);
+    border-radius: 3px;
+    &:focus {
+      outline: 2px solid var(--light-blue);
+    }
   }
 }
-}
-.table-header-row{
-  
+.table-header-row {
   background-color: var(--light-blue);
-  &.mat-header-row{
-    height:37px;
+  &.mat-header-row {
+    height: 37px;
   }
-  & .mat-header-cell{
-    color:var(--white);
+  & .mat-header-cell {
+    color: var(--white);
   }
-  
 }
 th.mat-header-cell,
 td.mat-cell {
   padding: 0 10px;
 }
-.mat-paginator{
+.mat-paginator {
   display: block;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    .mat-paginator-page-size{
-      display: none;
-    } 
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  .mat-paginator-page-size {
+    display: none;
+  }
 }

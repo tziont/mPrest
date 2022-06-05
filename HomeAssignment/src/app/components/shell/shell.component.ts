@@ -13,5 +13,5 @@ export class ShellComponent implements OnInit {
   ngOnInit(): void {}
   changePhotoUrl(url: string) {
     this.currentPhoto = url;
-    }
+  }
 }

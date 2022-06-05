@@ -19,10 +19,10 @@ getPhotos():Observable<Photo[]>{
 deletePhoto(id:number):Observable<any>{
   return this.http.delete<Photo>(this.url+ id).pipe(map(reponse => reponse))
 }
-postPhoto(data:any):Observable<any>{
+postPhoto(data:Photo):Observable<any>{
   return this.http.post<any>(this.url,data).pipe(map(reponse => reponse))
 }
-putPhoto(data:any,id:number){
+putPhoto(data:Photo,id:number){
   return this.http.put<any>(this.url+id,data).pipe(map(reponse => reponse))
 }
 }

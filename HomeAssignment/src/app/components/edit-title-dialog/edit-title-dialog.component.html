@@ -1,13 +1,12 @@
 <h1>Edit photo title</h1>
 <form class="edit-form" [formGroup]="editTitleForm">
+  <label
+    >Edit title
+    <input formControlName="title" placeholder="Title" />
+  </label>
 
-    <label>Edit title
-        <input formControlName="title" placeholder="Title">
-    </label>
-    
-  
-    <div mat-dialog-action [align]="'end'">
-        <button class="cancel" (click)="close()">Cancel</button>
-        <button class="save" (click)="saveTitle()">Save</button>
-    </div>
+  <div mat-dialog-action [align]="'end'">
+    <button class="cancel" (click)="close()">Cancel</button>
+    <button class="save" (click)="saveTitle()">Save</button>
+  </div>
 </form>
