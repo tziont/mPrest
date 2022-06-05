@@ -30,7 +30,9 @@ export class EditTitleDialogComponent implements OnInit {
       thumbnailUrl:[''],
     })
   }
-
+  close() {
+    this.dialogRef.close();
+}
   saveTitle(){
     if(this.editTitleForm.valid){
       this.photos.putPhoto(this.editTitleForm.value,this.editData.id)

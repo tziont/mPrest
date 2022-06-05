@@ -4,12 +4,12 @@
   width: 780px;
   height: 100%;
   text-align: left;
-  border: 1px solid #078cc2;
+  border: 1px solid var(--light-blue);
 }
 .add-btn{
-  background: #078cc2;
+  background: var(--light-blue);
   border: none;
-  color: #fff;
+  color: var(--white);
   border-radius: 3px;
   padding: 6px 20px;
 }
@@ -34,10 +34,10 @@ table {
   button {
     border:1px solid #333;
     border-radius: 3px;
-    background-color: #fff;
+    background-color: var(--white);
     .mat-icon {
       font-size: 24px;
-      color: #078cc2;;
+      color: var(--light-blue);
     }
     &:nth-child(2) {
       .mat-icon {
@@ -52,21 +52,21 @@ table {
   justify-content: space-between;
   padding:10px;
 input{
-  border:1px solid #078cc2;
+  border:1px solid var(--light-blue);
   border-radius: 3px;
   &:focus{
-    outline: 2px solid #078cc2;
+    outline: 2px solid var(--light-blue);
   }
 }
 }
 .table-header-row{
   
-  background-color: #078cc2;
+  background-color: var(--light-blue);
   &.mat-header-row{
     height:37px;
   }
   & .mat-header-cell{
-    color:#fff;
+    color:var(--white);
   }
   
 }

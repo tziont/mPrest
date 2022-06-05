@@ -27,6 +27,9 @@ photosRecordForm: FormGroup;
       thumbnailUrl:[''],
     })
   }
+  close() {
+    this.dialogRef.close();
+}
   addPhotoRecord(){
     if(this.photosRecordForm.valid){
       this.photos.postPhoto(this.photosRecordForm.value)

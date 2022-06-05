@@ -3,9 +3,10 @@
     justify-content: center;
     height: 415px;
     width: 415px;
-    border: 1px solid #078cc2;
+    border: 1px solid var(--light-blue);
     h2{
         align-self: center;
+        color:var(--light-blue);
 
     }
 }

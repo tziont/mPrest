@@ -66,7 +66,7 @@ export class PhotosTableComponent implements OnInit {
     });
   }
   openAddPhotoDialog() {
-    const dialogRef = this.dialog.open(AddPhotoDialogComponent,{width:'500px'});
+    const dialogRef = this.dialog.open(AddPhotoDialogComponent,{width:'400px'});
 
     dialogRef.afterClosed().subscribe(result => {
       this.getAllPhotos();
@@ -74,7 +74,7 @@ export class PhotosTableComponent implements OnInit {
   }
 
   openEditDialog(row:any) {
-    const dialogRef = this.dialog.open(EditTitleDialogComponent,{width:'500px',data:row});
+    const dialogRef = this.dialog.open(EditTitleDialogComponent,{width:'400px',data:row});
 
     dialogRef.afterClosed().subscribe(result => {
 
